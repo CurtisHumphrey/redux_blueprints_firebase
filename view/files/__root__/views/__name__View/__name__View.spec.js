@@ -47,10 +47,14 @@ describe('<%= pascalEntityName %>', () => {
       expect(wrapper).to.exist
     })
     it('redux actions for connect should have these keys', () => {
-      expect(actions).to.contain.all.keys(prop_actions)
+      if (_.keys(prop_actions).length) {
+        expect(actions).to.contain.all.keys(prop_actions)
+      }
     })
     it('redux selectors for connect should have these keys', () => {
-      expect(selectors).to.contain.all.keys(prop_selectors)
+      if (_.keys(prop_selectors).length) {
+        expect(selectors).to.contain.all.keys(prop_selectors)
+      }
     })
   })
 })
