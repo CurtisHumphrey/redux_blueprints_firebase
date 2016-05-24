@@ -2,6 +2,7 @@ import React from 'react'
 import {
   shallow,
 } from 'enzyme'
+import _ from 'lodash'
 
 import {
   <%= pascalEntityName %>,
@@ -9,7 +10,6 @@ import {
   selectors,
 } from './<%= pascalEntityName %>'
 
-import _ from 'lodash'
 // import stylesClass from './<%= pascalEntityName %>.scss'
 // const styles = _.mapValues(stylesClass, (raw) => '.' + raw)
 
@@ -26,9 +26,9 @@ describe('<<%= pascalEntityName %> />', () => {
       throw new Error(message)
     })
 
-    prop_actions = {
-    }
     prop_selectors = {
+    }
+    prop_actions = {
     }
 
     props = {
