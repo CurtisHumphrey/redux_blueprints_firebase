@@ -1,5 +1,5 @@
 import React from 'react'
-import{ PropTypes } from 'react'
+import { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import CSSModules from 'react-css-modules'
 import { createStructuredSelector } from 'reselect'
