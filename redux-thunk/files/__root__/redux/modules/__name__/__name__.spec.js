@@ -1,5 +1,6 @@
 import reducer, {
   actions,
+  private_actions,
   selectors as <%= snakeEntityName %>_selectors,
   BASE_SELECTOR_PATH,
 } from './<%= snakeEntityName %>'
@@ -9,16 +10,23 @@ import _ from 'lodash'
 const selectors = full_state_selectors(<%= snakeEntityName %>_selectors, BASE_SELECTOR_PATH)
 
 describe('<%= snakeEntityName %> redux', () => {
-  let initial_state
+  let sandbox
   let state
+  let dispatch
+  let getState
 
   beforeEach(() => {
-    initial_state = {
-    }
+    sandbox = sinon.sandbox.create()
+    dispatch = sandbox.stub()
+    state = reducer(undefined, {})
+    getState = () => ({[BASE_SELECTOR_PATH]: state})
+  })
+  afterEach(() => {
+    sandbox.restore()
   })
 
   it('should have this initial state', () => {
     state = reducer(undefined, {})
-    expect(state).to.eql(initial_state)
+    expect(state).to.exist
   })
 })
