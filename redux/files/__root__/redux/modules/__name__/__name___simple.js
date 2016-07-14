@@ -27,7 +27,7 @@ export const selectors = {
 // ------------------------------------
 // Reducer and Actions
 // ------------------------------------
-const action_types_prefix = '<%= snakeEntityName %>'
+const action_types_prefix = '<%= snakeEntityName %>/'
 
 const public_handlers = {
   reset: () => Immutable(initial_state),
