@@ -1,0 +1,3 @@
+{
+  "main":"./<%= snakeEntityName %>_info.js"
+}
