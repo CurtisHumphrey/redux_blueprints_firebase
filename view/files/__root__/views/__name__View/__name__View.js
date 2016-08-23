@@ -1,5 +1,5 @@
 import React from 'react'
-import{ PropTypes } from 'react'
+import { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Helmet from 'react-helmet'
 import CSSModules from 'react-css-modules'
@@ -14,6 +14,7 @@ const mapStateToProps = createStructuredSelector(selectors)
 
 export class <%= pascalEntityName %>View extends React.Component {
   static propTypes = {
+    styles: PropTypes.any,
   };
 
   componentWillMount () {
@@ -22,7 +23,7 @@ export class <%= pascalEntityName %>View extends React.Component {
 
   renderWaiting () {
     return (
-      <div />
+      <div>Loading data...</div>
     )
   }
 

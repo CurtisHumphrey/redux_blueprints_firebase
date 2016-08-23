@@ -2,11 +2,12 @@ import React from 'react'
 import {
   shallow,
 } from 'enzyme'
-import _ from 'lodash'
 
 import <%= pascalEntityName %> from './<%= pascalEntityName %>'
-import stylesClass from './<%= pascalEntityName %>.scss'
-const styles = _.mapValues(stylesClass, (raw) => '.' + raw)
+
+// import _ from 'lodash'
+// import stylesClass from './<%= pascalEntityName %>.scss'
+// const styles = _.mapValues(stylesClass, (raw) => '.' + raw)
 
 describe('<<%= pascalEntityName %> />', () => {
   let sandbox
