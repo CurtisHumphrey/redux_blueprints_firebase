@@ -56,5 +56,10 @@ describe('<%= pascalEntityName %>', () => {
         expect(selectors).to.contain.all.keys(prop_selectors)
       }
     })
+    it('should have a useful meta description', () => {
+      const wrapper = shallow(<<%= pascalEntityName %>View {...props} />)
+      const meta_description = _.find(wrapper.find(Helmet).prop('meta'), ['name', 'description'])
+      expect(meta_description.content).to.not.eql('content')
+    })
   })
 })

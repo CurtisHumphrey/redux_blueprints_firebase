@@ -35,6 +35,10 @@ export class <%= pascalEntityName %>View extends React.Component {
       <div styleName='root'>
         <Helmet
           title={'<%= pascalEntityName %>'}
+          meta={[{
+            name: 'description',
+            content: 'content',
+          }]}
         />
       </div>
     )
