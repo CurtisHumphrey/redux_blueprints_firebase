@@ -2,6 +2,7 @@ import React from 'react'
 import {
   shallow,
 } from 'enzyme'
+import Helmet from 'react-helmet'
 
 import {
   <%= pascalEntityName %>View,
@@ -10,8 +11,8 @@ import {
 } from './<%= pascalEntityName %>View'
 
 import _ from 'lodash'
-import stylesClass from './<%= pascalEntityName %>View.scss'
-const styles = _.mapValues(stylesClass, (raw) => '.' + raw)
+// import stylesClass from './<%= pascalEntityName %>View.scss'
+// const styles = _.mapValues(stylesClass, (raw) => '.' + raw)
 
 describe('<%= pascalEntityName %>', () => {
   let sandbox
