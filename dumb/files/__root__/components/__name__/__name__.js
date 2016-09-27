@@ -3,7 +3,7 @@ import CSSModules from 'react-css-modules'
 
 import styles from './<%= pascalEntityName %>.scss'
 
-export class <%= pascalEntityName %> extends React.Component {
+class <%= pascalEntityName %> extends React.Component {
   static propTypes = {
   };
   static defaultProps = {
