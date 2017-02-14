@@ -2,6 +2,7 @@ import React from 'react'
 import {
   shallow,
 } from 'enzyme'
+import proptype_error_catcher from 'react-proptype-error-catcher'
 import _ from 'lodash'
 
 import {
@@ -22,9 +23,7 @@ describe('<<%= pascalEntityName %> />', () => {
   beforeEach(() => {
     sandbox = sinon.sandbox.create()
 
-    sandbox.stub(console, 'error', (message) => {
-      throw new Error(message)
-    })
+    proptype_error_catcher(sandbox)
 
     prop_selectors = {
     }
