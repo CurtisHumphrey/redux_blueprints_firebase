@@ -17,20 +17,7 @@ class <%= pascalEntityName %>View extends React.PureComponent {
     styles: PropTypes.any,
   };
 
-  componentWillMount () {
-    // get data
-  }
-
-  renderWaiting () {
-    return (
-      <div>Loading data...</div>
-    )
-  }
-
   render () {
-    if (true) {
-      return this.renderWaiting()
-    }
     return (
       <div styleName='root'>
         <Helmet

@@ -26,9 +26,9 @@ describe('<%= pascalEntityName %>', () => {
 
     proptype_error_catcher(sandbox)
 
-    prop_actions = {
-    }
     prop_selectors = {
+    }
+    prop_actions = {
     }
 
     props = {

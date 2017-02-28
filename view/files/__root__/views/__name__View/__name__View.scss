@@ -1,7 +1,5 @@
-@import "~styles/colors";
-@import "~styles/sizes";
-@import "~styles/patterns";
+@import "~styles/base";
 
 .root {
-  background-color: $color_light_grey;
+  display: block;
 }
