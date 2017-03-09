@@ -16,9 +16,7 @@ describe('<<%= pascalEntityName %> />', () => {
   beforeEach(() => {
     sandbox = sinon.sandbox.create()
 
-    sandbox.stub(console, 'error', (message) => {
-      throw new Error(message)
-    })
+    proptype_error_catcher(sandbox)
 
     props = {}
   })

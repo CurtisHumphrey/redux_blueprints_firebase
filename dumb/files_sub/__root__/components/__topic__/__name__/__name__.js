@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react'
-import CSSModules from 'react-css-modules'
 
-import styles from './<%= pascalEntityName %>.scss'
+import './<%= pascalEntityName %>.scss'
 
-class <%= pascalEntityName %> extends React.PureComponent {
+export class <%= pascalEntityName %> extends React.PureComponent {
   static propTypes = {
   };
   static defaultProps = {
@@ -16,4 +15,4 @@ class <%= pascalEntityName %> extends React.PureComponent {
   }
 }
 
-export default CSSModules(<%= pascalEntityName %>, styles)
+export default <%= pascalEntityName %>
