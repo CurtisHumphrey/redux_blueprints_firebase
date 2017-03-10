@@ -24,7 +24,7 @@ describe('<%= pascalEntityName %>', () => {
   beforeEach(() => {
     sandbox = sinon.sandbox.create()
 
-    proptype_error_catcher(sandbox)
+    require('react-proptype-error-catcher')(sandbox)
 
     prop_selectors = {
     }
