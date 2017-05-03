@@ -3,11 +3,9 @@ import Immutable from 'seamless-immutable'
 import {
   make_simple_selectors,
   make_reducer_n_actions,
-  make_simple_reducer,
 } from 'redux_helpers'
-import {
-  default_handlers,
-} from 'redux/modules/firebase_listener'
+import { standard_firebase_search } from 'redux/utils/search_helpers'
+
 // import _ from 'lodash'
 
 // -------
@@ -15,8 +13,9 @@ import {
 // --------
 
 const initial_state = {
+  <%= snakeEntityName %>_loading: true,
   <%= snakeEntityName %>: {},
-  <%= snakeEntityName %>_loaded: false,
+  search_text: '',
 }
 
 // -------
@@ -27,8 +26,15 @@ export {BASE as BASE_SELECTOR_PATH}
 
 const simple_selectors = make_simple_selectors(initial_state, BASE)
 
+const items_from_search = standard_firebase_search({
+  items_selector: simple_selectors.<%= snakeEntityName %>,
+  keys: ['name'],
+  search_text_selector: simple_selectors.search_text,
+})
+
 export const selectors = {
   ...simple_selectors,
+  <%= snakeEntityName %>: items_from_search, // replaces simple
 }
 
 // ------------------------------------
@@ -37,12 +43,18 @@ export const selectors = {
 const action_types_prefix = '<%= snakeEntityName %>_info/'
 
 const public_handlers = {
+  reset: () => Immutable(initial_state),
+  update_search: (state, {payload}) => state.merge({
+    search_text: payload,
+  }),
 }
 
 const private_handlers = {
-  'update': default_handlers.update('<%= snakeEntityName %>'),
-  'remove_one': default_handlers.remove_one('<%= snakeEntityName %>'),
-  'set_loaded': make_simple_reducer('<%= snakeEntityName %>_loaded'),
+  update_list: (state, {payload}) => state.replace({
+    ...state,
+    <%= snakeEntityName %>_loading: false,
+    <%= snakeEntityName %>: payload,
+  }, {deep: true}),
 }
 
 export const {reducer, private_actions, actions, ACTION_TYPES} = make_reducer_n_actions({
@@ -53,4 +65,3 @@ export const {reducer, private_actions, actions, ACTION_TYPES} = make_reducer_n_
   Immutable,
 })
 export default reducer
-
