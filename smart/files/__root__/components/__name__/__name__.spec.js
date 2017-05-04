@@ -2,8 +2,6 @@ import React from 'react'
 import {
   shallow,
 } from 'enzyme'
-import proptype_error_catcher from 'react-proptype-error-catcher'
-import _ from 'lodash'
 
 import {
   <%= pascalEntityName %>,
@@ -11,6 +9,7 @@ import {
   selectors,
 } from './<%= pascalEntityName %>'
 
+import _ from 'lodash'
 // import stylesClass from './<%= pascalEntityName %>.scss'
 // const styles = _.mapValues(stylesClass, (raw) => '.' + raw)
 
@@ -55,5 +54,7 @@ describe('<<%= pascalEntityName %> />', () => {
         expect(selectors).to.contain.all.keys(prop_selectors)
       }
     })
+  })
+  describe('behaviors', () => {
   })
 })
