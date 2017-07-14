@@ -21,7 +21,7 @@ const initial_state = {
 // -------
 // Selectors
 // --------
-const BASE = '<%= snakeEntityName %>_info'
+const BASE = '<%= snakeEntityName %>'
 export {BASE as BASE_SELECTOR_PATH}
 
 const simple_selectors = make_simple_selectors(initial_state, BASE)
@@ -40,7 +40,7 @@ export const selectors = {
 // ------------------------------------
 // Reducer and Actions
 // ------------------------------------
-const action_types_prefix = '<%= snakeEntityName %>_info/'
+const action_types_prefix = '<%= snakeEntityName %>/'
 
 const public_handlers = {
   reset: () => Immutable(initial_state),
