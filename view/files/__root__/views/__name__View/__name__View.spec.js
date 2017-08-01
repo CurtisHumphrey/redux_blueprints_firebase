@@ -4,6 +4,7 @@ import {
 } from 'enzyme'
 import proptype_error_catcher from 'react-proptype-error-catcher'
 import Helmet from 'react-helmet'
+import _ from 'lodash'
 
 import {
   <%= pascalEntityName %>View,
@@ -11,7 +12,6 @@ import {
   selectors,
 } from './<%= pascalEntityName %>View'
 
-import _ from 'lodash'
 // import stylesClass from './<%= pascalEntityName %>View.scss'
 // const styles = _.mapValues(stylesClass, (raw) => '.' + raw)
 
@@ -46,14 +46,20 @@ describe('<%= pascalEntityName %>', () => {
       const wrapper = shallow(<<%= pascalEntityName %>View {...props} />)
       expect(wrapper).to.exist
     })
-    it('redux actions for connect should have these keys', () => {
+    it('redux actions for connect should be valid and complete', () => {
       if (_.keys(prop_actions).length) {
         expect(actions).to.contain.all.keys(prop_actions)
+        _.forEach(actions, (actionFn, key) => {
+          expect(actionFn, `name: ${key}`).to.be.a('function')
+        })
       }
     })
-    it('redux selectors for connect should have these keys', () => {
+    it('redux selectors for connect should be valid and complete', () => {
       if (_.keys(prop_selectors).length) {
         expect(selectors).to.contain.all.keys(prop_selectors)
+        _.forEach(selectors, (selectorFn, key) => {
+          expect(selectorFn, `name: ${key}`).to.be.a('function')
+        })
       }
     })
     it('should have a useful meta description', () => {

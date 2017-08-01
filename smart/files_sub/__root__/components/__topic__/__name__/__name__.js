@@ -12,13 +12,14 @@ const mapStateToProps = createStructuredSelector(selectors)
 
 export class <%= pascalEntityName %> extends React.Component {
   static propTypes = {
+    className: PropTypes.string,
   };
   static defaultProps = {
   };
 
   render () {
     return (
-      <div></div>
+      <div>loading...</div>
     )
   }
 }

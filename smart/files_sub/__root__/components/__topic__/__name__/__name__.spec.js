@@ -2,6 +2,7 @@ import React from 'react'
 import {
   shallow,
 } from 'enzyme'
+import _ from 'lodash'
 
 import {
   <%= pascalEntityName %>,
@@ -9,7 +10,6 @@ import {
   selectors,
 } from './<%= pascalEntityName %>'
 
-import _ from 'lodash'
 // import stylesClass from './<%= pascalEntityName %>.scss'
 // const styles = _.mapValues(stylesClass, (raw) => '.' + raw)
 
@@ -44,14 +44,20 @@ describe('<<%= pascalEntityName %> />', () => {
       const wrapper = shallow(<<%= pascalEntityName %> {...props} />)
       expect(wrapper).to.exist
     })
-    it('redux actions for connect should have these keys', () => {
+    it('redux actions for connect should be valid and complete', () => {
       if (_.keys(prop_actions).length) {
         expect(actions).to.contain.all.keys(prop_actions)
+        _.forEach(actions, (actionFn, key) => {
+          expect(actionFn, `name: ${key}`).to.be.a('function')
+        })
       }
     })
-    it('redux selectors for connect should have these keys', () => {
+    it('redux selectors for connect should be valid and complete', () => {
       if (_.keys(prop_selectors).length) {
         expect(selectors).to.contain.all.keys(prop_selectors)
+        _.forEach(selectors, (selectorFn, key) => {
+          expect(selectorFn, `name: ${key}`).to.be.a('function')
+        })
       }
     })
   })
