@@ -1,14 +1,14 @@
 import React from 'react'
 import { PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
+// import { connect } from 'react-redux'
+// import { createStructuredSelector } from 'reselect'
 
 import './<%= pascalEntityName %>.scss'
 
-export const selectors = {}
-export const actions = {}
+// export const selectors = {}
+// export const actions = {}
 
-const mapStateToProps = createStructuredSelector(selectors)
+// const mapStateToProps = createStructuredSelector(selectors)
 
 export class <%= pascalEntityName %> extends React.Component {
   static propTypes = {
@@ -23,4 +23,5 @@ export class <%= pascalEntityName %> extends React.Component {
     )
   }
 }
-export default connect(mapStateToProps, actions)(<%= pascalEntityName %>)
+// export default connect(mapStateToProps, actions)(<%= pascalEntityName %>)
+export default <%= pascalEntityName %>
