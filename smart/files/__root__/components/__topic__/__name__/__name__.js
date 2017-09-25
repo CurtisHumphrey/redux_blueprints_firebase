@@ -1,5 +1,5 @@
 import React from 'react'
-import { PropTypes } from 'react'
+// import PropTypes from 'prop-types'
 // import { connect } from 'react-redux'
 // import { createStructuredSelector } from 'reselect'
 
@@ -10,7 +10,7 @@ import './<%= pascalEntityName %>.scss'
 
 // const mapStateToProps = createStructuredSelector(selectors)
 
-export class <%= pascalEntityName %> extends React.Component {
+export class <%= pascalEntityName %> extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
   };
