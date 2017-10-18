@@ -10,7 +10,7 @@ export const load_<%= snakeEntityName %> = () => (dispatch, getState) => {
   if (!selectors.<%= snakeEntityName %>_loading(getState())) return
 
   dispatch(firebase_actions.on({
-    path: 'lists/<%= snakeEntityName %>',
+    path: 'recipe_parts/<%= snakeEntityName %>',
     update_action: ACTION_TYPES.update_list,
   }))
 }

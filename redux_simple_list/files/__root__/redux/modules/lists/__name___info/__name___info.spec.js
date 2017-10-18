@@ -45,7 +45,7 @@ describe('<%= snakeEntityName %>_info redux', () => {
   describe('public actions', () => {
     describe('loading', () => {
       const load_action = firebase_actions.on({
-        path: 'lists/<%= snakeEntityName %>',
+        path: 'recipe_parts/<%= snakeEntityName %>',
         update_action: ACTION_TYPES.update_list,
       })
       it('should have a load_<%= snakeEntityName %> that calls firebase/on', () => {
